@@ -1,0 +1,21 @@
+Portfilio partie epreuves
+
+
+Resume le contexte 
+
+
+environement tech
+-appli web ou client lourd
+-architec appli (mvc, archi en couche)
+-langage c#, php
+-bdd sqlserver , mysql
+
+GESTION PROJEY
+-projet equipe,
+-methode agile KABAN
+
+
+
+
+Mettre des captures utile (MCD (entourer ma partie), code; trello; application)
+Précisé travail en équipe
