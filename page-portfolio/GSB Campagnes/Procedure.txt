@@ -1,0 +1,40 @@
+alter procedure sp_Evenements_create(@Intitule varchar(50), @DateDebut date, @DateFin date, @IdCampagne int, @IdTheme int, @CodeInseeVille char(5))
+AS 
+BEGIN 
+INSERT INTO Evenement VALUES (@Intitule, @DateDebut, @DateFin, @IdCampagne, @IdTheme, @CodeInseeVille)
+END;
+
+exec sp_Evenements_create 'test' , '2022-05-15' , '2022-05-21' , 1, 1, 60463
+
+select * from Evenement
+
+ go
+
+create procedure sp_Evenements_get
+AS 
+BEGIN 
+select Evenement.Intitule, Evenement.DateDebut, Evenement.DateFin, Campagne.Intitule, ThemeEvenement.Libelle, Ville.CodePostal
+from Evenement
+join Campagne on Campagne.Id = Evenement.IdCampagne
+join ThemeEvenement on ThemeEvenement.Id = Evenement.IdTheme
+join Ville on Ville.CodeInsee = Evenement.CodeInseeVille
+END
+
+go
+
+create procedure sp_Evenements_update(@Id int ,@Intitule varchar(50), @DateDebut date, @DateFin date, @IdCampagne int, @IdTheme int, @CodeInseeVille char(5))
+AS 
+BEGIN 
+	UPDATE Evenement
+	SET Intitule = @Intitule, DateDebut = @DateDebut, DateFin = @DateFin, IdCampagne = @IdCampagne, IdTheme = @IdTheme, CodeInseeVille = @CodeInseeVille
+	WHERE id = @Id
+END
+
+ go
+
+ create procedure sp_Evenements_delete (@Id int)
+ AS 
+ BEGIN 
+	DELETE FROM Evenement WHERE id = @Id
+END
+
